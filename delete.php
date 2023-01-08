@@ -38,10 +38,10 @@ if ( $row === false ) {
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Peter Mwansa</title>
-  </head>
-
+<head>
+	<title>Peter Mwansa Delete Page</title>
+	<?php require_once "bootstrap.php"; ?>
+</head>
   <body>
     <form method="post">
     <input type="hidden" name="autos_id" value="<?= $row['autos_id'] ?>">

@@ -74,7 +74,8 @@ $autos_id = $row['autos_id'];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Peter Mwansa</title>
+	<title>Peter Mwansa Edit Page</title>
+	<?php require_once "bootstrap.php"; ?>
 </head>
 
 <body>

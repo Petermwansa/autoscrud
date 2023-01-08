@@ -49,7 +49,8 @@ if ( isset($_POST['email']) && isset($_POST['pass']) ) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Peter Mwansa</title>
+	<title>Peter Mwansa Login Page</title>
+	<?php require_once "bootstrap.php"; ?>
 </head>
 <body>
 	<h1>Please Log In</h1>

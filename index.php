@@ -13,7 +13,8 @@ echo'<h1>Welcome to Peter Mwansa Automobiles</h1>';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Peter Mwansa</title>
+	<title>Peter Mwansa Index Page</title>
+	<?php require_once "bootstrap.php"; ?>
 </head>
 
 <body>
@@ -26,6 +27,10 @@ echo'<h1>Welcome to Peter Mwansa Automobiles</h1>';
         echo '<p style="color:green">'.$_SESSION['success']."</p>\n";
         unset($_SESSION['success']);
     }
+
+
+
+    echo'<h1>Peter Mwansa\'s Automobiles</h1>';
     echo('<table border="1">'."\n");
     $stmt = $pdo->query("SELECT make, model, year, mileage, autos_id FROM autos");
     while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) ) {
@@ -47,6 +52,9 @@ echo'<h1>Welcome to Peter Mwansa Automobiles</h1>';
     }
     ?>
     </table>
+    <div>
+        <br>
+    </div>
     <a href="add.php">Add New Entry</a>
     <a href="logout.php">Logout</a>
 </body>

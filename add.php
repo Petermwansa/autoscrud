@@ -71,7 +71,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Peter Mwansa</title>
+	<title>Peter Mwansa Add Page</title>
+	<?php require_once "bootstrap.php"; ?>
 </head>
 <body>
 	<h1>Autos Database</h1>
