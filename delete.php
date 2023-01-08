@@ -36,8 +36,19 @@ if ( $row === false ) {
 ?>
 <p>Confirm: Deleting <?= htmlentities($row['make']) ?></p>
 
-<form method="post">
-<input type="hidden" name="autos_id" value="<?= $row['autos_id'] ?>">
-<input type="submit" value="Delete" name="delete">
-<a href="index.php">Cancel</a>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peter Mwansa</title>
+  </head>
+
+  <body>
+    <form method="post">
+    <input type="hidden" name="autos_id" value="<?= $row['autos_id'] ?>">
+    <input type="submit" value="Delete" name="delete">
+    <a href="index.php">Cancel</a>
+    </form>
+  </body>
+</html>
+
+

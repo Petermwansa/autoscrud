@@ -69,18 +69,32 @@ $y = htmlentities($row['year']);
 $mi = htmlentities($row['mileage']);
 $autos_id = $row['autos_id'];
 ?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Peter Mwansa</title>
+</head>
+
+<body>
 <p>Edit Automobile</p>
 <form method="post">
-<p>Make:
-<input type="text" name="make" value="<?= $ma ?>"></p>
-<p>Model:
-<input type="text" name="model" value="<?= $mo ?>"></p>
-<p>Year:
-<input type="text" name="year" value="<?= $y ?>"></p>
-<p>Mileage:
-<input type="text" name="mileage" value="<?= $mi ?>"></p>
+    <p>Make:
+    <input type="text" name="make" value="<?= $ma ?>"></p>
+    <p>Model:
+    <input type="text" name="model" value="<?= $mo ?>"></p>
+    <p>Year:
+    <input type="text" name="year" value="<?= $y ?>"></p>
+    <p>Mileage:
+    <input type="text" name="mileage" value="<?= $mi ?>"></p>
 
-<input type="hidden" name="autos_id" value="<?= $autos_id ?>">
-<p><input type="submit" value="Update"/>
-<a href="index.php">Cancel</a></p>
+    <input type="hidden" name="autos_id" value="<?= $autos_id ?>">
+    <button type="submit" value="Save">Save</button>
+    <a href="index.php">Cancel</a>
 </form>
+</body>
+</html>
+
+
+

@@ -5,11 +5,12 @@ session_start();
 
 //If the user is not yet logged in, this will display to on the screen to prompt the user to login
 if (! isset($_SESSION['email'])) {
-echo'<h1>Welcome to Peter\'s Automobiles</h1>';
-  die('<a href="login.php">Please Log in</a>');
+echo'<h1>Welcome to Peter Mwansa Automobiles</h1>';
+  die('<a href="login.php">Please log in</a>');
 }
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Peter Mwansa</title>
@@ -49,3 +50,5 @@ echo'<h1>Welcome to Peter\'s Automobiles</h1>';
     <a href="add.php">Add New Entry</a>
     <a href="logout.php">Logout</a>
 </body>
+
+</html>

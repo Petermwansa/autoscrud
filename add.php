@@ -31,18 +31,28 @@
 		return;
 	}
 
-	if (isset($_POST['make']) && isset($_POST['mileage'])
-		&& isset($_POST['year'])){
+
+
+	if (isset($_POST['make']) && isset($_POST['model']) && isset($_POST['year'])
+		&& isset($_POST['mileage'])){
+
+		if (strlen($_POST['make']) < 1 || strlen($_POST['model']) < 1 || strlen($_POST['year']) < 1 || strlen($_POST['mileage']) < 1 ) {
+			$_SESSION["error"] = "All fields are required";
+			header('Location: add.php');
+			return;
+		} 
 		
 		if (! is_numeric($_POST['mileage']) || ! is_numeric($_POST['year'])) {
 		$_SESSION["error"]= "Mileage and year must be numeric";
 		header('Location: add.php');
 		return;
-		} else if (strlen($_POST['make']) < 1) {
+		}
+		if (strlen($_POST['make']) < 1 ) {
 			$_SESSION["error"] = "Make required";
 			header('Location: add.php');
 			return;
-		}else {
+		}
+		else {
 			$stmt = $pdo->prepare('INSERT INTO autos
 							(make, model, year, mileage) VALUES (:mk, :mo, :yr, :mi)');
 			$stmt->execute(array(
@@ -51,13 +61,14 @@
 				':yr' => htmlentities($_POST['year']),
 				':mi' => htmlentities($_POST['mileage'])
 			));
-			$_SESSION["success"]= "Record Inserted";
+			$_SESSION["success"]= "Record added";
 			header('Location: index.php');
 			return;
 		}
 	}
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Peter Mwansa</title>
@@ -76,11 +87,11 @@
 		<p>Make:
 		<input type="text" name="make" size="40" value="<?= htmlentities($oldmake)?>"></p>      <!-- All the data has been escaped used the hmtlentities  -->
         <p>Model:
-		<input type="text" name="make" size="40" value="<?= htmlentities($oldmodel)?>"></p>  <!-- All the data has been escaped used the hmtlentities  -->
+		<input type="text" name="model" size="40" value="<?= htmlentities($oldmodel)?>"></p>  <!-- All the data has been escaped used the hmtlentities  -->
 		<p>Mileage:
-		<input type="text" name="mileage" value="<?= htmlentities($oldmiles)?>"></p>      <!-- All the data has been escaped used the hmtlentities  -->
+		<input type="text" name="year" value="<?= htmlentities($oldyear)?>"></p>      <!-- All the data has been escaped used the hmtlentities  -->
 		<p>Year:
-		<input type="text" name="year" value="<?= htmlentities($oldyear)?>"></p>        <!-- All the data has been escaped used the hmtlentities  -->
+		<input type="text" name="mileage" value="<?= htmlentities($oldmiles)?>"></p>        <!-- All the data has been escaped used the hmtlentities  -->
 
 		<input type="submit" value="Add">
 	</form>
@@ -96,3 +107,7 @@
 	</form>
 </body>
 </html>
+
+</html>
+
+
