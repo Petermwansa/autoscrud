@@ -2,6 +2,12 @@
 	session_start();
 	require_once "pdo.php";
 
+	//If the user is not yet logged in, this will display to on the screen to prompt the user to login
+	if (! isset($_SESSION['email'])) {
+	echo'<h1>Welcome to Peter\'s Automobiles</h1>';
+	die('<a href="login.php">Please Log in</a>');
+	}
+
 	$oldmake = isset($_POST['make']) ? $_POST['make'] : '';
 	$oldmodel = isset($_POST['model']) ? $_POST['model'] : '';
 	$oldyear = isset($_POST['year']) ? $_POST['year'] : '';
@@ -54,7 +60,7 @@
 
 <html>
 <head>
-	<title>Peter Mwansa </title>
+	<title>Peter Mwansa</title>
 </head>
 <body>
 	<h1>Autos Database</h1>
@@ -68,13 +74,13 @@
 	<form method="post">
 		<p>Add a new automobile</p>
 		<p>Make:
-		<input type="text" name="make" size="40" value="<?= htmlentities($oldmake)?>"></p>
+		<input type="text" name="make" size="40" value="<?= htmlentities($oldmake)?>"></p>      <!-- All the data has been escaped used the hmtlentities  -->
         <p>Model:
-		<input type="text" name="make" size="40" value="<?= htmlentities($oldmodel)?>"></p>
+		<input type="text" name="make" size="40" value="<?= htmlentities($oldmodel)?>"></p>  <!-- All the data has been escaped used the hmtlentities  -->
 		<p>Mileage:
-		<input type="text" name="mileage" value="<?= htmlentities($oldmiles)?>"></p>
+		<input type="text" name="mileage" value="<?= htmlentities($oldmiles)?>"></p>      <!-- All the data has been escaped used the hmtlentities  -->
 		<p>Year:
-		<input type="text" name="year" value="<?= htmlentities($oldyear)?>"></p>
+		<input type="text" name="year" value="<?= htmlentities($oldyear)?>"></p>        <!-- All the data has been escaped used the hmtlentities  -->
 
 		<input type="submit" value="Add">
 	</form>

@@ -2,6 +2,12 @@
 require_once "pdo.php";
 session_start();
 
+//If the user is not yet logged in, this will display to on the screen to prompt the user to login
+if (! isset($_SESSION['email'])) {
+echo'<h1>Welcome to Peter\'s Automobiles</h1>';
+die('<a href="login.php">Please Log in</a>');
+}
+
 if ( isset($_POST['make']) 
      && isset($_POST['model'])
      && isset($_POST['year']) 
